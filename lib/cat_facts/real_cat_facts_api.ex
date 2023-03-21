@@ -3,8 +3,6 @@ defmodule CatFacts.RealCatFactsApi do
   Actually calls the Cat Facts API
   """
 
-  @behaviour CatFacts.CatFactsApi
-
   @cat_facts_base "https://catfact.ninja"
 
   def get_facts(path, finch_pool) do
