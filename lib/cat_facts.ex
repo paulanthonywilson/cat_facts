@@ -2,6 +2,7 @@ defmodule CatFacts do
   @moduledoc """
   Gets facts about cats.
   """
+  use CatFacts.CatFactsApi
 
   @spec fact ::
           {:ok, fact :: String.t()}
@@ -11,7 +12,7 @@ defmodule CatFacts do
 
   def fact do
     "fact"
-    |> cat_facts_api().fetch_fun_feline_facts(CatFinch)
+    |> CatFactsApi.fetch_fun_feline_facts(CatFinch)
     |> handle_response()
   end
 
@@ -35,8 +36,4 @@ defmodule CatFacts do
   end
 
   defp get_data(_), do: {:error, :nofact}
-
-  defp cat_facts_api do
-    Application.get_env(:cat_facts, CatFacts.CatFactsApi, CatFacts.RealCatFactsApi)
-  end
 end
