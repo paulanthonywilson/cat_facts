@@ -6,7 +6,7 @@ defmodule CatFactsTest do
   setup :verify_on_exit!
 
   test "Can get a fact" do
-    expect(MockCatFactsApi, :get_facts, fn "fact", CatFinch ->
+    expect(MockCatFactsApi, :fetch_fun_feline_facts, fn "fact", CatFinch ->
       {:ok,
        %Finch.Response{
          body: "{\"fact\":\"Cats are really dogs in disguise.\",\"length\":33}",
@@ -18,7 +18,7 @@ defmodule CatFactsTest do
   end
 
   test "Can handle a lack of facts" do
-    expect(MockCatFactsApi, :get_facts, fn "fact", CatFinch ->
+    expect(MockCatFactsApi, :fetch_fun_feline_facts, fn "fact", CatFinch ->
       {:ok,
        %Finch.Response{
          body: "{}",
@@ -30,7 +30,7 @@ defmodule CatFactsTest do
   end
 
   test "Gracefully handles server errors" do
-    expect(MockCatFactsApi, :get_facts, fn "fact", CatFinch ->
+    expect(MockCatFactsApi, :fetch_fun_feline_facts, fn "fact", CatFinch ->
       {:ok,
        %Finch.Response{
          body: "Hot tin roof!",
@@ -42,7 +42,7 @@ defmodule CatFactsTest do
   end
 
   test "Gracefully handles transport error" do
-    expect(MockCatFactsApi, :get_facts, fn "fact", CatFinch ->
+    expect(MockCatFactsApi, :fetch_fun_feline_facts, fn "fact", CatFinch ->
       {:error, %Mint.TransportError{reason: :nxdomain}}
     end)
 

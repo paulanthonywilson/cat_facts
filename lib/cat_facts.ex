@@ -11,7 +11,7 @@ defmodule CatFacts do
 
   def fact do
     "fact"
-    |> cat_facts_api().get_facts(CatFinch)
+    |> cat_facts_api().fetch_fun_feline_facts(CatFinch)
     |> handle_response()
   end
 

@@ -3,6 +3,6 @@ defmodule CatFacts.CatFactsApi do
   CatFacts api behaviour
   """
 
-  @callback get_facts(path :: String.t(), finch_pool :: atom) ::
+  @callback fetch_fun_feline_facts(path :: String.t(), finch_pool :: atom) ::
               {:ok, Finch.Response.t()} | {:error, Exception.t()}
 end
