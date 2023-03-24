@@ -3,9 +3,12 @@ defmodule CatFacts.RealCatFactsApi do
   Actually calls the Cat Facts API
   """
 
+  @behaviour CatFacts.CatFactsApi
+
   @cat_facts_base "https://catfact.ninja"
 
-  def get_facts(path, finch_pool) do
+  @impl CatFacts.CatFactsApi
+  def fetch_fun_feline_facts(path, finch_pool) do
     url = Path.join(@cat_facts_base, path)
 
     :get
